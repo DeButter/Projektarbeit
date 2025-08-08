@@ -14,9 +14,17 @@ class App:                                          # Klasse # Hier wird die Kla
 
         start_button = tk.Button(self.root, text="Start", font=("Arial", 24), width=10, height=2, command=self.open_main_menu)      # Mit der tk.Button Klasse wird ein Knopf erstellt danach folgen die Argumente. Beim Command wird die methode open main menu ausgeführt in dieser Methode wird ein neues Fenster erstellt.
         start_button.pack(expand=True, padx=50, pady=50)            # Hier wird noch die Position des Buttons definiert und ob er sich bewegt wenn das fenster vergrössert wird.
+        
+
 
     def open_main_menu(self):                                       # Methode # Hier wird die Methode von oben definiert
         self.root.withdraw()                                        # Methode # durch das withdraw versteckt sich das self.root (Startfenster)
+
+        program_path = r"A:\RFID Software\RFID Software\RFID_Programmer.exe"
+        program_directory = os.path.dirname(program_path)
+        subprocess.Popen([program_path], cwd=program_directory)
+
+            
 
         self.menu_win = tk.Toplevel()                                 # Attribut
         self.menu_win.title("Menü")                                 # Title Menü wird gegeben.
@@ -93,6 +101,50 @@ class App:                                          # Klasse # Hier wird die Kla
         number_str = self.number_entry.get().strip()
         if number_str == "":
             number_str = "(keine Eingabe erhalten)"
+
+        if option == "Washbuffer":
+            time.sleep(1)
+            pyautogui.press ("enter")
+            pyautogui.press ("tab", presses=7)
+            pyautogui.press ("down", presses=6)
+            pyautogui.press ("enter")
+        elif option == "Lysis":
+            time.sleep(1)
+            pyautogui.press ("enter")
+            pyautogui.press ("tab", presses=7)
+            pyautogui.press ("down", presses=3)
+            pyautogui.press ("enter")
+        elif option == "Diluent":
+            time.sleep(1)
+            pyautogui.press ("enter")
+            pyautogui.press ("tab", presses=7)
+            pyautogui.press ("down", presses=2)
+            pyautogui.press ("enter")
+        elif option == "CMR +":
+            time.sleep(1)
+            pyautogui.press ("enter")
+            pyautogui.press ("tab", presses=7)
+            pyautogui.press ("down", presses=1)
+            pyautogui.press ("enter")
+        elif option == "CMR -":
+            time.sleep(1)
+            pyautogui.press ("enter")
+            pyautogui.press ("tab", presses=7)
+            pyautogui.press ("enter")
+        elif option == "MGP":
+            time.sleep(1)
+            pyautogui.press ("enter")
+            pyautogui.press ("tab", presses=7)
+            pyautogui.press ("down", presses=4)
+            pyautogui.press ("enter")
+        elif option == "Reagent":
+            time.sleep(1)
+            pyautogui.press ("enter")
+            pyautogui.press ("tab", presses=7)
+            pyautogui.press ("down", presses=5)
+            pyautogui.press ("enter")
+
+
         print(f"Starte Skript mit Option {option} und Anzahl {number_str}")
 
     def close_app(self):                                                                                    # Befehel zum schliessen des Interface

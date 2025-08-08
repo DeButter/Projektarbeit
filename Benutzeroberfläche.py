@@ -144,7 +144,7 @@ class App:                                          # Klasse # Hier wird die Kla
             pyautogui.press ("down", presses=5)
             pyautogui.press ("enter")
 
-
+    
         print(f"Starte Skript mit Option {option} und Anzahl {number_str}")
 
     def close_app(self):                                                                                    # Befehel zum schliessen des Interface
